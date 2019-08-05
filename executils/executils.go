@@ -24,6 +24,8 @@ import (
 	"os/exec"
 )
 
+var tellCommandNotToSpawnShell func(*exec.Cmd) = func(_ *exec.Cmd) {}
+
 // PipeCommands executes the commands received as input by feeding the output of
 // one to the input of the other, exactly like Unix Pipe (|).
 // Returns the output of the final command and the eventual error.

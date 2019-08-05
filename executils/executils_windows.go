@@ -22,6 +22,8 @@ import (
 	"syscall"
 )
 
-func tellCommandNotToSpawnShell(oscmd *exec.Cmd) {
-	oscmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
+func init() {
+	tellCommandNotToSpawnShell = func(oscmd *exec.Cmd) {
+		oscmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
+	}
 }
